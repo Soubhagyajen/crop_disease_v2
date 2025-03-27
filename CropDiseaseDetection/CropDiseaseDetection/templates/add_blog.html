@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center text-light">Create a New Blog</h2>
+    <div class="card p-4 bg-dark text-light shadow-lg">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control bg-secondary text-light" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Image</label>
+                <input type="file" class="form-control bg-secondary text-light" name="image">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Content</label>
+                <textarea class="form-control bg-secondary text-light" name="content" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Post Blog</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5 text-light">
+    <h1 class="text-center mb-4">📞 Contact Us</h1>
+
+    <!-- Introduction -->
+    <div class="card p-4 shadow-lg mb-4" style="background-color: #f8f9fa; color: #212529;">
+        <p>
+            Need help with **crop disease detection**? Have feedback or suggestions?  
+            Fill out the form below, and we’ll get back to you as soon as possible. 🌾✨
+        </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="card p-4 shadow-lg mb-4 bg-dark text-light">
+        <h2 class="mb-3">📝 Send Us a Message</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control bg-secondary text-light" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control bg-secondary text-light" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control bg-secondary text-light" name="subject" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control bg-secondary text-light" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">📩 Send Message</button>
+        </form>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="card p-4 shadow-lg mb-4" style="background-color: #f8f9fa; color: #212529;">
+        <h2>📍 Get in Touch</h2>
+        <p><strong>📧 Email:</strong> support@crophealth.com</p>
+        <p><strong>📞 Phone:</strong> +91 98765 43210</p>
+        <p><strong>📍 Address:</strong> AI Research Center, Bhubaneswar, India</p>
+
+        <!-- Social Media Links -->
+        <div>
+            <a href="https://twitter.com" class="btn btn-outline-dark me-2">🐦 Twitter</a>
+            <a href="https://facebook.com" class="btn btn-outline-dark me-2">📘 Facebook</a>
+            <a href="https://instagram.com" class="btn btn-outline-dark">📸 Instagram</a>
+        </div>
+    </div>
+
+    <!-- Google Maps (Optional) -->
+    <div class="card p-4 shadow-lg mb-4" style="background-color: #f8f9fa; color: #212529;">
+        <h2>🌍 Find Us</h2>
+        <iframe 
+            width="100%" 
+            height="300" 
+            frameborder="0" 
+            style="border:0" 
+            allowfullscreen 
+            src="https://www.google.com/maps/embed/v1/place?q=Bhubaneswar,India&key=YOUR_GOOGLE_MAPS_API_KEY">
+        </iframe>
+    </div>
+
+    <!-- FAQ Section (Optional) -->
+    <div class="card p-4 shadow-lg mb-4" style="background-color: #f8f9fa; color: #212529;">
+        <h2>❓ Frequently Asked Questions</h2>
+        <h4>1. How long does it take to get a response?</h4>
+        <p>We usually respond within **24-48 hours**.</p>
+
+        <h4>2. Can I contribute to Crop.Health?</h4>
+        <p>Yes! We welcome collaborations. Contact us for details.</p>
+
+        <h4>3. How accurate is the crop disease detection?</h4>
+        <p>Our AI model has a **94% accuracy rate**.</p>
+    </div>
+</div>
+{% endblock %}

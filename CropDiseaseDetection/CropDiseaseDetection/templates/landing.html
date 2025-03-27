@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a1b12;
+            color: #d4e157;
+            font-family: Arial, sans-serif;
+        }
+        {% comment %} .hero {
+            background: url("{% static 'images/img2.jpg' %}") no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        } {% endcomment %}
+
+        .hero {
+            position: relative;
+            background: url("{% static 'images/img2.jpg' %}") no-repeat center center/cover;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Adjust opacity for better visibility */
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-custom {
+            background-color: #8bc34a;
+            color: #0a1b12;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #7cb342;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Blur effect for a glassmorphism look */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d4e157 !important; /* Light green */
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #8bc34a !important; /* Green on hover */
+        }
+        
+        .btn-custom {
+            background-color: #8bc34a;
+            color: #0a1b12;
+            border: none;
+            transition: background 0.3s ease-in-out;
+        }
+        
+        .btn-custom:hover {
+            background-color: #7cb342;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'landing' %}">KrishiRakshak AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'landing' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'how_it_works' %}">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_list' %}">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero text-light">
+        <div class="container">
+            <h1 class="fw-bold">Revolutionizing Agriculture with Intelligent Disease Detection</h1>
+            <p class="mt-3">Protect Your Crops with Fast and Accurate AI Disease Diagnosis.</p>
+            <div class="mt-4">
+                <a href="{% url "predict_disease" %}" class="btn btn-custom btn-lg">Try Demo</a>
+                <a href="https://www.india.gov.in/topics/agriculture/plant-protection" class="btn btn-outline-light btn-lg ms-3">See  Documentation</a>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

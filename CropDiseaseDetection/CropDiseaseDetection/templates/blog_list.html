@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="container my-5">
+     <!-- Search Bar -->
+     <form method="GET" action="{% url 'blog_list' %}" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control bg-dark text-light" placeholder="🔍 Search blogs..." value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form>
+    <h2 class="text-center text-light">📝 Blogs</h2>
+    
+    <a href="{% url 'add_blog' %}" class="btn btn-success mb-3">➕ Add New Blog</a>
+
+    {% for blog in blogs %}
+        <div class="blog-card bg-dark text-light p-3 rounded shadow-lg mb-3">
+            <h3>{{ blog.title }}</h3>
+            {% if blog.image %}
+                <img src="{{ blog.image.url }}" alt="Blog Image" class="img-fluid">
+            {% endif %}
+            <p>{{ blog.content|truncatewords:30 }}</p>
+            <a href="{% url 'blog_detail' blog.id %}" class="btn btn-outline-success">Read More</a>
+        </div>
+    {% empty %}
+        <p class="text-light">No blogs found.</p>
+    {% endfor %}
+    {% for blog in blogs %}
+    <div class="card bg-dark text-light my-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.content|truncatewords:20 }}</p>
+            <a href="{% url 'blog_detail' blog.id %}" class="btn btn-primary">Read More</a>
+            <a href="{% url 'delete_blog' blog.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
